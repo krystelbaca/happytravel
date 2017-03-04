@@ -18,7 +18,7 @@
         <activity
             android:name=".DestinoListActivity"
             android:label="@string/title_destino_list"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".DestinoDetailActivity"
             android:label="@string/title_destino_detail"
@@ -27,6 +27,19 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="app.krystelbaca.com.happytravel.DestinoListActivity" />
+        </activity>
+        <activity
+            android:name=".MiViajeListActivity"
+            android:label="@string/title_miviaje_list"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".MiViajeDetailActivity"
+            android:label="@string/title_miviaje_detail"
+            android:parentActivityName=".MiViajeListActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="app.krystelbaca.com.happytravel.MiViajeListActivity" />
         </activity>
     </application>
 

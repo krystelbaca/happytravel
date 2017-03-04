@@ -2,4 +2,6 @@
     <string name="app_name">Happy Travel</string>
     <string name="title_destino_list">Destinos</string>
     <string name="title_destino_detail">Destino Detail</string>
+    <string name="title_miviaje_list">MisViajes</string>
+    <string name="title_miviaje_detail">MiViaje Detail</string>
 </resources>
