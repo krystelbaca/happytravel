@@ -10,8 +10,8 @@
 
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:layout_height="wrap_content"/>
+
 
     <ImageView
         android:layout_width="match_parent"
@@ -26,19 +26,19 @@
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_marginTop="10dp"
-        android:id="@+id/button"
+        android:id="@+id/btn_destinos"
         android:layout_below="@+id/imageView"
-        android:layout_alignLeft="@+id/button2"
-        android:layout_alignStart="@+id/button2"
-        android:layout_alignRight="@+id/button2"
-        android:layout_alignEnd="@+id/button2" />
+        android:layout_alignLeft="@+id/btn_viajes"
+        android:layout_alignStart="@+id/btn_viajes"
+        android:layout_alignRight="@+id/btn_viajes"
+        android:layout_alignEnd="@+id/btn_viajes" />
 
     <Button
         android:text="Mis viajes"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:id="@+id/button2"
-        android:layout_below="@+id/button"
+        android:id="@+id/btn_viajes"
+        android:layout_below="@+id/btn_destinos"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp" />
 
@@ -47,29 +47,21 @@
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_marginTop="13dp"
-        android:id="@+id/button3"
-        android:layout_below="@+id/button2"
-        android:layout_alignLeft="@+id/button2"
-        android:layout_alignStart="@+id/button2" />
+        android:id="@+id/btn_ofertas"
+        android:layout_below="@+id/btn_viajes"
+        android:layout_alignLeft="@+id/btn_viajes"
+        android:layout_alignStart="@+id/btn_viajes" />
 
-    <Button
-        android:text="Pagos"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:id="@+id/button4"
-        android:layout_below="@+id/button3"
-        android:layout_alignLeft="@+id/button3"
-        android:layout_alignStart="@+id/button3"
-        android:layout_marginTop="26dp" />
+
 
     <Button
         android:text="Mi cuenta"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_marginTop="7dp"
-        android:id="@+id/button5"
-        android:layout_below="@+id/button4"
-        android:layout_alignLeft="@+id/button4"
-        android:layout_alignStart="@+id/button4" />
+        android:id="@+id/btn_cuenta"
+        android:layout_below="@+id/btn_ofertas"
+        android:layout_alignLeft="@+id/btn_ofertas"
+        android:layout_alignStart="@+id/btn_ofertas" />
 
 </RelativeLayout>

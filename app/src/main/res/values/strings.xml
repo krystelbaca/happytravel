@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Happy Travel</string>
+    <string name="title_destino_list">Destinos</string>
+    <string name="title_destino_detail">Destino Detail</string>
 </resources>
