@@ -16,6 +16,8 @@ import android.widget.TextView;
 
 
 import app.krystelbaca.com.happytravel.dummy.DummyContent;
+import app.krystelbaca.com.happytravel.dummy.Oferta;
+import app.krystelbaca.com.happytravel.dummy.OfertasContent;
 
 import java.util.List;
 
@@ -67,15 +69,15 @@ public class OfertaListActivity extends AppCompatActivity {
     }
 
     private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
-        recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(DummyContent.ITEMS));
+        recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(OfertasContent.ofertasList));
     }
 
     public class SimpleItemRecyclerViewAdapter
             extends RecyclerView.Adapter<SimpleItemRecyclerViewAdapter.ViewHolder> {
 
-        private final List<DummyContent.DummyItem> mValues;
+        private final List<Oferta> mValues;
 
-        public SimpleItemRecyclerViewAdapter(List<DummyContent.DummyItem> items) {
+        public SimpleItemRecyclerViewAdapter(List<Oferta> items) {
             mValues = items;
         }
 
@@ -89,15 +91,15 @@ public class OfertaListActivity extends AppCompatActivity {
         @Override
         public void onBindViewHolder(final ViewHolder holder, int position) {
             holder.mItem = mValues.get(position);
-            holder.mIdView.setText(mValues.get(position).id);
-            holder.mContentView.setText(mValues.get(position).content);
+            holder.mIdView.setText(mValues.get(position).getId());
+            holder.mContentView.setText(mValues.get(position).getNombre());
 
             holder.mView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if (mTwoPane) {
                         Bundle arguments = new Bundle();
-                        arguments.putString(OfertaDetailFragment.ARG_ITEM_ID, holder.mItem.id);
+                        arguments.putString(OfertaDetailFragment.ARG_ITEM_ID, holder.mItem.getId());
                         OfertaDetailFragment fragment = new OfertaDetailFragment();
                         fragment.setArguments(arguments);
                         getSupportFragmentManager().beginTransaction()
@@ -106,7 +108,7 @@ public class OfertaListActivity extends AppCompatActivity {
                     } else {
                         Context context = v.getContext();
                         Intent intent = new Intent(context, OfertaDetailActivity.class);
-                        intent.putExtra(OfertaDetailFragment.ARG_ITEM_ID, holder.mItem.id);
+                        intent.putExtra(OfertaDetailFragment.ARG_ITEM_ID, holder.mItem.getId());
 
                         context.startActivity(intent);
                     }
@@ -123,7 +125,7 @@ public class OfertaListActivity extends AppCompatActivity {
             public final View mView;
             public final TextView mIdView;
             public final TextView mContentView;
-            public DummyContent.DummyItem mItem;
+            public Oferta mItem;
 
             public ViewHolder(View view) {
                 super(view);
