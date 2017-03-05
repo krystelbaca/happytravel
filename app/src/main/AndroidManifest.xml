@@ -31,7 +31,7 @@
         <activity
             android:name=".MiViajeListActivity"
             android:label="@string/title_miviaje_list"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".MiViajeDetailActivity"
             android:label="@string/title_miviaje_detail"
@@ -40,6 +40,19 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="app.krystelbaca.com.happytravel.MiViajeListActivity" />
+        </activity>
+        <activity
+            android:name=".OfertaListActivity"
+            android:label="@string/title_oferta_list"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".OfertaDetailActivity"
+            android:label="@string/title_oferta_detail"
+            android:parentActivityName=".OfertaListActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="app.krystelbaca.com.happytravel.OfertaListActivity" />
         </activity>
     </application>
 

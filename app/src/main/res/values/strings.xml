@@ -4,4 +4,6 @@
     <string name="title_destino_detail">Destino Detail</string>
     <string name="title_miviaje_list">MisViajes</string>
     <string name="title_miviaje_detail">MiViaje Detail</string>
+    <string name="title_oferta_list">Ofertas</string>
+    <string name="title_oferta_detail">Oferta Detail</string>
 </resources>

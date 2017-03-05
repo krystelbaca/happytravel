@@ -36,9 +36,24 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent viajesIntent = new Intent(getBaseContext(),MiViajeListActivity.class);
                 startActivity(viajesIntent);
-
             }
         });
+
+        btnOfertas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent ofertasIntent = new Intent(getBaseContext(),OfertaListActivity.class);
+                startActivity(ofertasIntent);
+            }
+        });
+
+
+
+
+
+
+
+
     }
 
 
