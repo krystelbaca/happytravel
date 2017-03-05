@@ -15,6 +15,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 
+import app.krystelbaca.com.happytravel.dummy.Destino;
+import app.krystelbaca.com.happytravel.dummy.DestinoContent;
 import app.krystelbaca.com.happytravel.dummy.DummyContent;
 
 import java.util.List;
@@ -29,10 +31,6 @@ import java.util.List;
  */
 public class DestinoListActivity extends AppCompatActivity {
 
-    /**
-     * Whether or not the activity is in two-pane mode, i.e. running on a tablet
-     * device.
-     */
     private boolean mTwoPane;
 
     @Override
@@ -67,17 +65,15 @@ public class DestinoListActivity extends AppCompatActivity {
     }
 
     private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
-        recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(DummyContent.ITEMS));
+        recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(DestinoContent.destinoList));
     }
 
     public class SimpleItemRecyclerViewAdapter
             extends RecyclerView.Adapter<SimpleItemRecyclerViewAdapter.ViewHolder> {
 
-        private final List<DummyContent.DummyItem> mValues;
+        private final List<Destino> mValues;
 
-        public SimpleItemRecyclerViewAdapter(List<DummyContent.DummyItem> items) {
-            mValues = items;
-        }
+        public SimpleItemRecyclerViewAdapter(List<Destino> items) { mValues = items; }
 
         @Override
         public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -89,15 +85,15 @@ public class DestinoListActivity extends AppCompatActivity {
         @Override
         public void onBindViewHolder(final ViewHolder holder, int position) {
             holder.mItem = mValues.get(position);
-            holder.mIdView.setText(mValues.get(position).id);
-            holder.mContentView.setText(mValues.get(position).content);
+            holder.mIdView.setText(mValues.get(position).getId_destino());
+            holder.mContentView.setText(mValues.get(position).getNombre_destino());
 
             holder.mView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if (mTwoPane) {
                         Bundle arguments = new Bundle();
-                        arguments.putString(DestinoDetailFragment.ARG_ITEM_ID, holder.mItem.id);
+                        arguments.putString(DestinoDetailFragment.ARG_ITEM_ID, holder.mItem.getId_destino());
                         DestinoDetailFragment fragment = new DestinoDetailFragment();
                         fragment.setArguments(arguments);
                         getSupportFragmentManager().beginTransaction()
@@ -106,7 +102,7 @@ public class DestinoListActivity extends AppCompatActivity {
                     } else {
                         Context context = v.getContext();
                         Intent intent = new Intent(context, DestinoDetailActivity.class);
-                        intent.putExtra(DestinoDetailFragment.ARG_ITEM_ID, holder.mItem.id);
+                        intent.putExtra(DestinoDetailFragment.ARG_ITEM_ID, holder.mItem.getId_destino());
 
                         context.startActivity(intent);
                     }
@@ -123,7 +119,7 @@ public class DestinoListActivity extends AppCompatActivity {
             public final View mView;
             public final TextView mIdView;
             public final TextView mContentView;
-            public DummyContent.DummyItem mItem;
+            public Destino mItem;
 
             public ViewHolder(View view) {
                 super(view);
