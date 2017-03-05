@@ -47,6 +47,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        btnCuenta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent cuentaIntent = new Intent(getBaseContext(),Cuenta.class);
+                startActivity(cuentaIntent);
+            }
+        });
+
 
     }
 

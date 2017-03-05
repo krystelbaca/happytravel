@@ -2,6 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="app.krystelbaca.com.happytravel">
 
+    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -44,7 +49,7 @@
         <activity
             android:name=".OfertaListActivity"
             android:label="@string/title_oferta_list"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".OfertaDetailActivity"
             android:label="@string/title_oferta_detail"
@@ -54,6 +59,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="app.krystelbaca.com.happytravel.OfertaListActivity" />
         </activity>
+        <activity
+            android:name=".Cuenta"
+            android:label="@string/title_activity_cuenta"></activity>
     </application>
 
 </manifest>
