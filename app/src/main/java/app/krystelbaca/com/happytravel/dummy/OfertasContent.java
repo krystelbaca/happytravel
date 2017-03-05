@@ -38,18 +38,7 @@ public class OfertasContent {
         OFERTA_MAP.put(oferta.getId(), oferta);
     }
 
-    private static app.krystelbaca.com.happytravel.dummy.DummyContent.DummyItem createDummyItem(int position) {
-        return new app.krystelbaca.com.happytravel.dummy.DummyContent.DummyItem(String.valueOf(position), "Item " + position, makeDetails(position));
-    }
 
-    private static String makeDetails(int position) {
-        StringBuilder builder = new StringBuilder();
-        builder.append("Details about Item: ").append(position);
-        for (int i = 0; i < position; i++) {
-            builder.append("\nMore details information here.");
-        }
-        return builder.toString();
-    }
 }
 
 
