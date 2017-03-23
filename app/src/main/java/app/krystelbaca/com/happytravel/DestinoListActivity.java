@@ -15,9 +15,15 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 
+import app.krystelbaca.com.happytravel.Services.ViajesServices;
 import app.krystelbaca.com.happytravel.dummy.Destino;
 import app.krystelbaca.com.happytravel.dummy.DestinoContent;
 import app.krystelbaca.com.happytravel.dummy.DummyContent;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 import java.util.List;
 
@@ -31,12 +37,18 @@ import java.util.List;
  */
 public class DestinoListActivity extends AppCompatActivity {
 
+    Retrofit retrofit = new Retrofit.Builder()
+            .baseUrl("http://192.168.43.21:5000")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build();
+
     private boolean mTwoPane;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_destino_list);
+
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -71,9 +83,24 @@ public class DestinoListActivity extends AppCompatActivity {
     public class SimpleItemRecyclerViewAdapter
             extends RecyclerView.Adapter<SimpleItemRecyclerViewAdapter.ViewHolder> {
 
-        private final List<Destino> mValues;
+        private List<Destino> mValues;
 
-        public SimpleItemRecyclerViewAdapter(List<Destino> items) { mValues = items; }
+        public SimpleItemRecyclerViewAdapter(List<Destino> items) {
+            mValues = items;
+            ViajesServices viajes = retrofit.create(ViajesServices.class);
+            viajes.listDestinos().enqueue(new Callback<List<Destino>>() {
+                @Override
+                public void onResponse(Call<List<Destino>> call, Response<List<Destino>> response) {
+                    System.out.println(response.body());
+                    mValues = response.body();
+                }
+
+                @Override
+                public void onFailure(Call<List<Destino>> call, Throwable t) {
+                    System.out.println(" No conexion");
+                }
+            });
+        }
 
         @Override
         public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -84,6 +111,7 @@ public class DestinoListActivity extends AppCompatActivity {
 
         @Override
         public void onBindViewHolder(final ViewHolder holder, int position) {
+
             holder.mItem = mValues.get(position);
             holder.mIdView.setText(mValues.get(position).getId_destino());
             holder.mContentView.setText(mValues.get(position).getNombre_destino());
